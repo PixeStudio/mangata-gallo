@@ -1,0 +1,302 @@
+/* =========================
+   HEADER – Mangata & Gallo
+   ========================= */
+
+:root {
+  --color-bg: #ffffff;
+  --color-border-soft: #ece7dd;
+  --color-gold: #d4b06b;
+  --color-text-main: #222222;
+  --color-text-soft: #555555;
+
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --space-sm: 0.75rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text-main);
+}
+
+.container {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: var(--space-md);
+}
+
+/*HEADER*/
+
+.site-header {
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-soft);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: var(--space-md);
+}
+
+.logo-wrap {
+    margin-bottom: var(--space-sm);
+}
+
+.logo {
+    max-width: 260px;
+    height: auto;
+    display: block;
+}
+
+.site-nav {
+    margin-top: var(--space-sm);
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg);
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.18rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-soft);
+    padding-block: 0.25rem;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-gold);
+    transform: translateX(-50%);
+    transition: width 220ms ease-out;
+}
+
+.nav-link:hover::after,
+.nav-link--active::after {
+    width: 60%;
+}
+
+@media (max-width: 600px) {
+    .nav-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    }
+
+    .logo {
+        max-width: 220px;
+    }
+}
+
+/* =========================
+   HERO / PROMO
+   ========================= */
+
+.site-main {
+    padding-block: var(--space-lg);
+    
+}
+
+.hero-banner {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+}
+
+.hero-image {
+    width: 100%;
+    height: min(420px, 65vh);
+    object-fit: cover;
+    filter: brightness(0.75);
+    transform: scale(1.02);
+    transition: transform 400ms ease, filter 400ms ease;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.5rem, 5vw, 3.5rem);
+    background: linear-gradient(to right, rgba(0,0,0,0.55), rgba(0,0,0,0.08));
+    color: #fff;
+    backdrop-filter: blur(1.5px);
+} 
+
+.hero-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-size: 0.7rem;
+    margin-bottom: var(--space-sm);
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.6rem);
+    max-width: 40rem;
+    margin-bottom: var(--space-sm);
+}
+
+.hero-text {
+    max-width: 32rem;
+    font-size: 0.95rem;
+    margin-bottom: var(--space-sm);
+}
+
+.hero-cta {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0.7rem 1.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 200ms ease, transform 200ms ease;
+}
+
+.hero-banner:hover .hero-image {
+    transform: scale(1.05);
+    filter: brightness(0.9);
+}
+
+.hero-banner:hover .hero-cta {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+/* =========================
+   HIGHLIGHTS – 3 CARDS
+   ========================= */
+
+.highlights {
+    padding-block: var(--space-lg);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-lg);
+}
+
+.highlight-card {
+    background-color: var(--color-bg);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+.highlight-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.highlight-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    margin: var(--space-md) var(--space-md) var(--space-md);
+}
+
+.highlight-text {
+    margin: 0 var(--space-md) var(--space-md);
+    font-size: 0.95rem;
+    color: var(--color-text-soft);
+}
+
+/*RWD*/
+
+@media (max-width: 900px) {
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.site-footer {
+    background-color: var(--color-bg);
+    border-top: 1px solid var(--color-border-soft);
+}
+
+.footer-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: var(--space-md) var(--space-md);
+}
+
+.footer-logo {
+    max-width: 120px;
+    display: block;
+}
+
+.footer-home-link {
+    display: inline-block;
+}
+
+.footer-home-link:hover {
+    opacity: 0.85;
+}
+
+.footer-meta {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--color-text-soft);
+}
+
+/*RWD*/
+
+@media (max-width: 600px) {
+    .footer-inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .footer-meta {
+        text-align: left;
+    }
+}
