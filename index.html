@@ -2,36 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dist/style.css">
   <title>Mangata &amp; Gallo | Fine Jewelry</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
 
-  <header class="site-header" id="top">
-
-    <div class="header-inner container">
-
-        <div class="logo-wrap">
-        <img 
-            src="img/mg-logo.png" 
-            alt="Mangata and Gallo fine jewelry logo"
-            class="logo"
-        >
-        </div>
-
-        <nav class="site-nav" aria-label="Main navigation">
-        <ul class="nav-list">
-            <li><a href="#" class="nav-link nav-link--active">Home</a></li>
-            <li><a href="#" class="nav-link">Collections</a></li>
-            <li><a href="#" class="nav-link">About</a></li>
-            <li><a href="#" class="nav-link">Contact</a></li>
-        </ul>
-        </nav>
-    </div>
-  </header>
-  <main class="site-main">
+  <div id="site-header"></div>
+  
+  <main class="site-main" style="display: none;">
 
     <!-- HERO / PROMO -->
     <section class="hero container" aria-label="Current promotional offer">
@@ -40,7 +20,7 @@
           <img
             src="https://images.unsplash.com/photo-1742790159516-bdb38cf17481?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
             alt="Couple holding hands showing an engagement ring"
-            class="hero-image"
+            class="hero__logo"
           >
 
 
@@ -100,28 +80,8 @@
   </section>
 
   </main>
-<footer class="site-footer">
 
-  <div class="footer-inner">
-
-    <div class="footer-brand">
-       <a href="#" class="footer-home-link" aria-label="Back to top"> 
-        <img 
-          src="img/mg-mark.png"
-          alt="Mangata and Gallo monogram logo"
-          class="footer-logo"
-        >
-       </a>
-    </div>
-
-    <div class="footer-meta">
-      <p>© 2025 Mangata &amp; Gallo. All rights reserved.</p>
-    </div>
-
-  </div>
-
-</footer>
-
-
+  <div id="site-footer"></div>
+<script src="js/main.js"></script>
 </body>
 </html>
