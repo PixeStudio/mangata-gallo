@@ -3,28 +3,31 @@ function loadPartial(id, url) {
   if (!target) return;
 
   fetch(url)
-    .then(res => {
-      if (!res.ok) throw new Error(`Failed to load ${url}`);
-      return res.text();
-    })
+    .then(res => res.text())
+    .then(html => target.innerHTML = html);
+}
+
+function loadMain(url) {
+  const main = document.getElementById("app");
+
+  fetch(url)
+    .then(res => res.text())
     .then(html => {
-      target.innerHTML = html;
-      setActiveNavLink();
-    })
-    .catch(err => console.error(err));
+      main.innerHTML = html;
+      window.scrollTo(0, 0);
+    });
 }
 
-function setActiveNavLink() {
-  const current = location.pathname.split('/').pop() || 'index.html';
+document.addEventListener("DOMContentLoaded", () => {
+  loadPartial("site-header", "partials/header.html");
+  loadPartial("site-footer", "partials/footer.html");
+  loadMain("main.html");
+});
 
-  document.querySelectorAll('.header__nav-link').forEach(link => {
-    if (link.getAttribute('href') === current) {
-      link.classList.add('header__nav-link--active');
-    }
-  });
-}
+document.addEventListener("click", e => {
+  const link = e.target.closest("[data-page]");
+  if (!link) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadPartial('site-header', 'partials/header.html');
-  loadPartial('site-footer', 'partials/footer.html');
+  e.preventDefault();
+  loadMain(link.dataset.page);
 });

@@ -1,3 +1,7 @@
+## LINK TO GITHUB PAGE:
+
+https://pixestudio.github.io/mangata-gallo/
+
 ## CSS Architecture
 
 This project uses a PostCSS-based workflow with nested CSS syntax
