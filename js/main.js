@@ -7,13 +7,13 @@ function loadPartial(id, url) {
     .then(html => target.innerHTML = html);
 }
 
-function loadMain(url) {
-  const main = document.getElementById("app");
+function loadPage(url) {
+  const app = document.getElementById("app");
 
   fetch(url)
     .then(res => res.text())
     .then(html => {
-      main.innerHTML = html;
+      app.innerHTML = html;
       window.scrollTo(0, 0);
     });
 }
@@ -21,7 +21,9 @@ function loadMain(url) {
 document.addEventListener("DOMContentLoaded", () => {
   loadPartial("site-header", "partials/header.html");
   loadPartial("site-footer", "partials/footer.html");
-  loadMain("main.html");
+
+  // STARTOWA STRONA
+  loadPage("partials/home.html");
 });
 
 document.addEventListener("click", e => {
@@ -29,5 +31,5 @@ document.addEventListener("click", e => {
   if (!link) return;
 
   e.preventDefault();
-  loadMain(link.dataset.page);
+  loadPage(link.dataset.page);
 });
